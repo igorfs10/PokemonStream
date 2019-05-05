@@ -20,7 +20,7 @@ let head = document.getElementsByTagName('head')[0];
 //Função para atualizar o pokémon no quadro, a função pega o ID, nome e qual caixa ele vai mudar. Através do ID ela pega a imagem e as cores dos tipos.
 function mudarPokemonJogo(id, nome, posicao){
         cxPokemon[posicao].style.backgroundImage = `linear-gradient(${POKEMONS[id].tipo1.cor},${POKEMONS[id].tipo2.cor})`;
-        imgPokemon[posicao].src="./PokemonImages/" + (POKEMONS[id].id).pad(3) + ".png";
+        imgPokemon[posicao].src="./PokemonImages/" + (POKEMONS[id].id) + ".png";
 		nomePokemon[posicao].innerText = nome;
 }
 
@@ -33,13 +33,6 @@ function atualizarPokemon(){
 		mudarPokemonJogo(pokemon[i], name[i], i);
 	}
     head.removeChild(script);
-}
-
-//Função para colocar casas decimais nos ids
-Number.prototype.pad = function(size) {
-    let s = String(this);
-    while (s.length < (size || 2)) {s = "0" + s;}
-    return s;
 }
 
 //Atualiza os quadros no começo
